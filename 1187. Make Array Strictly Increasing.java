@@ -9,7 +9,9 @@ class Solution {
       Map<Integer, Integer> nextDp = new HashMap<>();
       for (final int val : dp.keySet()) {
         final int steps = dp.get(val);
-        if (a > val)
+         if (a > val)
+          nextDp.put(a, Math.min(nextDp.getOrDefault(a, Integer.MAX_VALUE), steps));
+        final int i = firstGreater(arr2, val);
         if (i < arr2.length)
           nextDp.put(arr2[i], Math.min(nextDp.getOrDefault(arr2[i], Integer.MAX_VALUE), steps + 1));
       }
